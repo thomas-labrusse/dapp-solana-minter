@@ -1,0 +1,59 @@
+@import '../../variables.scss';
+
+.learn-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	background-color: $white;
+}
+
+.learn {
+	width: 1440px;
+	padding: 80px 140px;
+
+	h2 {
+		margin-bottom: 60px;
+		font-family: $font-primary;
+		color: $black-light;
+		font-size: $header-size;
+		font-weight: $header-weight;
+	}
+}
+
+.QA-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 60px;
+	width: 100%;
+}
+
+.topics {
+	display: flex;
+	flex-direction: column;
+	// background-color: aliceblue;
+
+	button {
+		width: 400px;
+		height: 50px;
+		margin-bottom: 16px;
+		background-color: $blue-very-light;
+		font-family: $font-primary;
+		color: $white;
+		cursor: pointer;
+		font-size: $link-size;
+		font-weight: $link-weight;
+		text-transform: uppercase;
+		border: none;
+		border-radius: 3px;
+	}
+	.active {
+		background-color: $blue-dark;
+	}
+}
+
+.questions {
+	flex: 1 1 0px;
+	// background-color: lightpink;
+}

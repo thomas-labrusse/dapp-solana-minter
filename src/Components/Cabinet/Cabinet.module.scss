@@ -1,0 +1,44 @@
+@import '../../variables.scss';
+
+.cabinet-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $white;
+	min-height: 50vh;
+}
+
+.cabinet {
+	width: 1440px;
+	padding: 40px 140px;
+	background-image: url('../../../public/img/Comets-4.png');
+	background-repeat: no-repeat;
+	background-size: 280px;
+	background-position: 0% -180px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.display-medal-button-container {
+	margin-bottom: 0.8rem;
+}
+
+.medals {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.medal {
+	opacity: 0;
+	transition: 1s ease;
+
+	&.active {
+		opacity: 1;
+		transition-duration: 1s;
+		transform: scale(1.05);
+	}
+}

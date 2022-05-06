@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.cabinet-header-container {
+	display: flex;
+	justify-content: center;
+	background: linear-gradient(
+		120deg,
+		$blue-dark 0.65%,
+		rgba(124, 146, 169, 0.8) 100%
+	);
+}
+
+.cabinet-header {
+	display: flex;
+	justify-content: center;
+	width: 1440px;
+	padding: 40px 140px;
+
+	h2 {
+		color: white;
+		font-family: $font-primary;
+		font-size: $header-size;
+		font-weight: $header-weight;
+	}
+}

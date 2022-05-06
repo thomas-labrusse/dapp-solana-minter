@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.button {
+	width: auto;
+	width: 100%;
+	padding: 0.5rem;
+	border: none;
+	border-radius: 9999px;
+	font-family: $font-primary;
+	font-size: $link-size;
+	font-weight: $link-weight;
+	transition: all 300ms;
+	cursor: pointer;
+}
+
+.primary {
+	color: $white;
+	background-color: $gold;
+
+	&:hover,
+	&:active {
+		background-color: $gold-dark;
+	}
+}
+
+.secondary {
+	color: $white;
+	background-color: transparent;
+	border: 1px solid $white;
+
+	&:hover,
+	&:active {
+		color: $blue;
+		background-color: $white;
+	}
+}

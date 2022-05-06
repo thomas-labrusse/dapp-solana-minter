@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid $blue-dark;
+	min-height: 50px;
+	color: $black-light;
+	transition: height 1000ms;
+}
+.question {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	border: none;
+	background: none;
+	cursor: pointer;
+
+	color: $black-light;
+	height: 50px;
+	font-family: $font-primary;
+	font-weight: $link-weight;
+	font-size: $link-size;
+
+	:hover {
+		color: $black;
+	}
+}
+.answer {
+	// display: none;
+	height: 0;
+	overflow: hidden;
+	font-family: $font-primary;
+	font-size: $paragraph-size;
+	font-weight: $paragraph-weight;
+	transition: height ease 300ms;
+
+	&.active {
+		margin-bottom: 30px;
+	}
+}
+
+.icon {
+	width: 24px;
+}

@@ -1,0 +1,81 @@
+@import '../../variables.scss';
+
+.how-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(161, 179, 201, 0.25); // $blue-very-light
+}
+
+.how {
+	width: 1440px;
+	padding: 80px 140px;
+	background-image: url('../../../public/img/Comets-4.png');
+	background-repeat: no-repeat;
+	background-size: 280px;
+	background-position: 0% -180px;
+
+	h2 {
+		margin-bottom: 60px;
+		font-family: $font-primary;
+		color: $black-light;
+		font-size: $header-size;
+		font-weight: $header-weight;
+	}
+}
+
+.steps {
+	display: flex;
+	flex-direction: row;
+	gap: 90px;
+	font-family: $font-primary;
+
+	h3 {
+		margin-bottom: 45px;
+		color: $black-light;
+		font-size: $subheader-size;
+		font-weight: $subheader-weight;
+		text-transform: uppercase;
+	}
+
+	span {
+		font-size: $subheader-size;
+		font-weight: $subheader-weight;
+		text-transform: uppercase;
+		color: $gold-dark;
+	}
+
+	p {
+		font-size: $paragraph-size;
+		font-weight: $paragraph-weight;
+		color: $black-very-light;
+		line-height: 155%;
+	}
+
+	.step {
+		flex: 1 1 0px;
+		position: relative;
+	}
+
+	:nth-child(1) .number {
+		left: -10%;
+	}
+
+	.number {
+		position: absolute;
+		top: 13%;
+		left: -14%;
+		font-size: 128px;
+		font-weight: bold;
+		color: $gold-dark;
+
+		background: linear-gradient(
+			90deg,
+			#cca142 41.94%,
+			rgba(204, 161, 66, 0.2) 53%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+}

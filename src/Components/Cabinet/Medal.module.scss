@@ -1,0 +1,24 @@
+@import '../../variables.scss';
+
+.medal-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition-duration: 1s ease;
+
+	.cord-image {
+		width: 200px;
+	}
+	.medal-image {
+		width: 220px;
+	}
+
+	.medal-holder {
+		width: 226px;
+		height: 226px;
+		background-color: none;
+		border: 3px solid $blue-dark;
+		box-shadow: 2px 5px 4px rgba(124, 146, 169, 0.3);
+	}
+}

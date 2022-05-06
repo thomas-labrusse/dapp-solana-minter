@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(161, 179, 201, 0.5);
+	border: none;
+	border-radius: 999px;
+
+	cursor: pointer;
+
+	img {
+		width: 42px;
+	}
+
+	&:hover,
+	&:active {
+		background-color: rgba(161, 179, 201, 0.8);
+	}
+}

@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.footer-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $blue-dark;
+
+	//NOTE: test only
+	height: 250px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 100%;
+	font-family: $font-primary;
+	font-weight: $paragraph-weight;
+	font-size: $paragraph-size;
+
+	ul {
+		display: flex;
+		list-style: none;
+		text-decoration: none;
+		gap: 40px;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+
+		// &:hover,
+		// &:active {
+		// 	text-decoration: underline;
+		// }
+	}
+
+	.copyrights {
+		font-family: $font-primary;
+		font-size: $paragraph-size;
+		font-weight: $paragraph-weight;
+		color: rgba(255, 255, 255, 0.4);
+	}
+}
