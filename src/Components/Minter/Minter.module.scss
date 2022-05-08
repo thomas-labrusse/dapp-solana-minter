@@ -25,33 +25,13 @@
 			color: $gold-dark;
 		}
 	}
-
-	h3 {
-		margin-bottom: 25px;
-		font-family: $font-primary;
-		color: $black-light;
-		font-size: $subheader-size;
-		font-weight: $subheader-weight;
-	}
 }
 
-.selection-container {
-	width: 600px;
-
-	p {
-		display: flex;
-		flex-direction: row;
-		margin-bottom: 15px;
-		font-family: $font-primary;
-		font-size: $paragraph-size;
-		font-weight: $paragraph-weight;
-		color: $black-light;
-	}
-}
-
-.minter-mint-button-container {
-	width: 170px;
-	margin-bottom: 0.8rem;
+.races-container {
+	display: flex;
+	flex-direction: row;
+	column-gap: 30px;
+	flex-wrap: wrap;
 }
 
 .minter-link-paragraph {
@@ -65,40 +45,10 @@
 	margin-top: 45px;
 }
 
-.icon {
-	width: 24px;
-	margin-right: 40px;
-}
-
 .link {
 	font-family: $font-primary;
 	font-size: $link-size;
 	font-weight: $link-weight;
 	color: $gold-dark;
 	text-decoration: none;
-}
-
-.spinner-container {
-	margin-top: 15px;
-}
-
-.mint-status {
-	font-family: $font-primary;
-	color: $black-light;
-	font-size: $link-size;
-	font-weight: $link-weight;
-	background-color: $blue;
-	border-radius: 3px;
-	padding: 5px 10px;
-	color: white;
-	margin-bottom: 0.8rem;
-
-	a {
-		text-decoration: none;
-		color: $gold;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
 }
