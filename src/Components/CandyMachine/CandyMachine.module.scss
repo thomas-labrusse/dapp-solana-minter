@@ -1,0 +1,21 @@
+@import '../../variables.scss';
+
+.mint-button-container {
+	width: 150px;
+}
+
+.no-wallet-msg {
+	text-align: center;
+	font-family: $font-primary;
+	font-size: $paragraph-size;
+	font-weight: $paragraph-weight;
+	color: rgba(102, 102, 102, 0.7);
+}
+
+.link {
+	font-family: $font-primary;
+	font-size: $link-size;
+	font-weight: $link-weight;
+	color: $gold-dark;
+	text-decoration: none;
+}

@@ -11,22 +11,28 @@ import Spinner from '../UI/Spinner'
 
 const races = [
 	{
-		name: 'London Marathon 2022',
+		name: 'London Marathon',
 		id: '1',
+		year: '2022',
 		mintPrice: '0.001',
-		contract: '0xBF33f47965379fB4187Db07E7398c8a3eFa9265a',
+		contract: '0xBF3...9265a',
+		image: './img/races/london-marathon.jpeg',
 	},
 	{
-		name: 'Paris Marathon 2022',
+		name: 'Paris Marathon',
 		id: '2',
+		year: '2022',
 		mintPrice: '0.001',
-		contract: '0xD560B317416E1FE2781C8a0b88A1DC04F611E5b7',
+		contract: '0xD5...E5b7',
+		image: './img/races/paris-marathon.png',
 	},
 	{
-		name: 'Ironman 70.3 Vichy 2022',
+		name: 'Ironman 70.3 Vichy',
 		id: '3',
+		year: '2022',
 		mintPrice: '0.001',
-		contract: '0x8EC38C64Dd165B0B1b756104ACd4377840fCD9a5',
+		contract: '0x8E...D9a5',
+		image: './img/races/IM-Vichy-logo.png',
 	},
 ]
 
@@ -36,12 +42,18 @@ const Minter = React.forwardRef((props, ref) => {
 	return (
 		<div className={styles['minter-container']} id='mint' ref={ref}>
 			<div className={styles.minter}>
-				<h2>
+				<h2 className={styles['minter-header']}>
 					Get your <span>medal</span> now
 				</h2>
 				<div className={styles['races-container']}>
 					{races.map((race) => {
-						return <RaceCard walletAddress={window.solana} />
+						return (
+							<RaceCard
+								race={race}
+								myWallet={props.walletAddress}
+								id={race.id}
+							/>
+						)
 					})}
 				</div>
 				<p

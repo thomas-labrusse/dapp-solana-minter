@@ -13,20 +13,19 @@
 	align-items: center;
 	width: 1440px;
 	padding: 80px 140px;
-
-	h2 {
-		margin-bottom: 40px;
-		font-family: $font-primary;
-		color: $black-light;
-		font-size: $header-size;
-		font-weight: $header-weight;
-
-		span {
-			color: $gold-dark;
-		}
-	}
 }
 
+.minter-header {
+	margin-bottom: 40px;
+	font-family: $font-primary;
+	color: $black-light;
+	font-size: $header-size;
+	font-weight: $header-weight;
+
+	span {
+		color: $gold-dark;
+	}
+}
 .races-container {
 	display: flex;
 	flex-direction: row;

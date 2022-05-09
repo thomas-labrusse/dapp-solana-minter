@@ -16,12 +16,15 @@ import {
 // Components imports
 import Button from '../UI/Button'
 
+// Styles import
+import styles from './CandyMachine.module.scss'
+
 const { SystemProgram } = web3
 const opts = {
 	preflightCommitment: 'processed',
 }
 
-const CandyMachine = ({ walletAddress }) => {
+const CandyMachine = ({ walletAddress, myWallet }) => {
 	const [candyMachine, setCandyMachine] = useState(null)
 
 	// #######################################################################
@@ -421,18 +424,28 @@ const CandyMachine = ({ walletAddress }) => {
 		<div>
 			{candyMachine && candyMachine.state && (
 				<div>
-					<p>{`Medals available : ${candyMachine.state.itemsAvailable}`}</p>
-					<p>{`Medals left : ${candyMachine.state.itemsRemaining}`}</p>
-
-					<p>{`Price : ${
-						candyMachine.state.price.toNumber() * 0.000000001
-					}`}</p>
-					{walletAddress ? (
-						<Button onClick={mintToken} styles={'primary'}>
-							Mint Medal
-						</Button>
+					{myWallet ? (
+						<div className={styles['mint-button-container']}>
+							<Button onClick={mintToken} styles={'primary'}>
+								Mint my medal
+							</Button>
+						</div>
 					) : (
-						<p>Please connect to your Phantom wallet</p>
+						<p className={styles['no-wallet-msg']}>
+							<a href='#' className={styles.link}>
+								Connect
+							</a>{' '}
+							to your Phantom wallet. Don't have one yet ?{' '}
+							<a
+								href='https://phantom.app/'
+								rel='noreferrer'
+								target='_blank'
+								className={styles.link}
+							>
+								download it
+							</a>
+							.
+						</p>
 					)}
 				</div>
 			)}

@@ -36,7 +36,11 @@ function MedalDescription(props) {
 
 			{description && (
 				<div className={styles['description-block']}>
-					<img src='./img/medal.svg' alt='medal icon' className={styles.icon} />
+					<img
+						src='./img/icons/medal.svg'
+						alt='medal icon'
+						className={styles.icon}
+					/>
 					<p className={styles['description-paragraph']}>{description}</p>
 				</div>
 			)}
@@ -44,7 +48,7 @@ function MedalDescription(props) {
 			{date && (
 				<div className={styles['description-block']}>
 					<img
-						src='./img/calendar.svg'
+						src='./img/icons/calendar.svg'
 						alt='calendar icon'
 						className={styles.icon}
 					/>
@@ -55,7 +59,7 @@ function MedalDescription(props) {
 			{distance && (
 				<div className={styles['description-block']}>
 					<img
-						src='./img/tape-measure.svg'
+						src='./img/icons/tape-measure.svg'
 						alt='distance icon'
 						className={styles.icon}
 					/>

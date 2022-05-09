@@ -117,7 +117,7 @@ const Cabinet = (props) => {
 					<MedalDescription token={tokensData[currentToken]} />
 					<div>
 						<ButtonArrow
-							link={'./img/arrow-left.svg'}
+							link={'./img/icons/arrow-left.svg'}
 							onClick={navDown}
 						></ButtonArrow>
 					</div>
@@ -136,7 +136,7 @@ const Cabinet = (props) => {
 					</div>
 					<div>
 						<ButtonArrow
-							link={'./img/arrow-right.svg'}
+							link={'./img/icons/arrow-right.svg'}
 							onClick={navUp}
 						></ButtonArrow>
 					</div>

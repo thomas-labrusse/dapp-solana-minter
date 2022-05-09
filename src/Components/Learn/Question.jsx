@@ -16,13 +16,13 @@ const Question = (props) => {
 				<div>
 					{props.isActive ? (
 						<img
-							src='./img/arrow-up.svg'
+							src='./img/icons/arrow-up.svg'
 							alt='expand more'
 							className={styles.icon}
 						/>
 					) : (
 						<img
-							src='./img/arrow-down.svg'
+							src='./img/icons/arrow-down.svg'
 							alt='expand less'
 							className={styles.icon}
 						/>
