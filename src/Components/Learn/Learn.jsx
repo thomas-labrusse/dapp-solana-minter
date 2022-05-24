@@ -34,39 +34,38 @@ const Learn = React.forwardRef((props, ref) => {
 			title: 'Finish lines NFT',
 			questions: [
 				{
-					question: 'What is a finish lines medal ?',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+					question: 'What is a Finish Lines medal ?',
+					answer: 'A NFT reserved to races finishers.',
 				},
 				{
-					question: 'What is a finish lines medal ?',
+					question: 'Why would I want one ?',
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'A Finish Lines medal, just like a regular medal you can wear around your neck, is the proof and reward of your accomplishement. Cherish it, display it on social media or forget about it ',
 				},
 				{
-					question: 'What is a finish lines medal ?',
+					question: 'Where can I see my medal ?',
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'You have several way of seeing your Finish Lines medals. Your NFT medal is linked to your wallet. In your Phantom wallet for instance, you can see all your NFTs in the "Your Collectibles". If you want to display exclusively your Finish Lines NFT, head to the "Cabinet" tab after connecting your Phantom wallet. There you can see all your medals with their specific data.',
 				},
 			],
 		},
 		{
-			title: 'Redeem my medal',
+			title: 'NFTs (Non Fungible Tokens)',
 			questions: [
 				{
-					question: 'Second topic',
+					question: 'What is an NFT ?',
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'A Non Fungible Tokens (NFT) is a digital asset with a unique identity recorded in a database (a blockchain). Its ownership can be tracked and proved. In the case of Finish Lines medals, the asset is an image with data (metadata) attached to it.',
 				},
 				{
-					question: 'Second topic',
+					question: "Isn't it just a fancy jpeg ?",
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'You can imagine a NFT as a certificate of ownership for anything digital. What you see is an image that can be a jpeg, a png or any format you can imagine. When you hold a NFT you are the proved owner of the asset (the image).',
 				},
 				{
-					question: 'Second topic',
+					question: 'Where are NFT stored ?',
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'The NFT itself is stored on a blockchain (a decentralized ledger, or record of transactions). The blockchain is maintain by many users, each having a copy of the entire records, making it very resistant to time or censorship. The NFT or token then points to the data - the image, or metadata if any -  you see on your screen.',
 				},
 			],
 		},
@@ -74,39 +73,13 @@ const Learn = React.forwardRef((props, ref) => {
 			title: 'Technical information',
 			questions: [
 				{
-					question: 'Third topic',
+					question: 'On what blockchain are stored Finish Lines NFTs ?',
 					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+						'Finish Lines NFTs are stored on the Solana blockchain, a proof of history / proof of stake blockchain.',
 				},
 				{
-					question: 'Third topic',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
-				},
-				{
-					question: 'Third topic',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
-				},
-			],
-		},
-		{
-			title: 'General',
-			questions: [
-				{
-					question: 'Fourth topic',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
-				},
-				{
-					question: 'Fourth topic',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
-				},
-				{
-					question: 'Fourth topic',
-					answer:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, qui illum quidem molestiae voluptate rerum debitis fuga temporibus velit voluptates aliquid ratione! Explicabo, in corrupti.',
+					question: 'What are the compatible wallets ?',
+					answer: 'For now only Phantom wallets are supported.',
 				},
 			],
 		},
