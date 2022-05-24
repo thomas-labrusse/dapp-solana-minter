@@ -340,79 +340,81 @@ const CandyMachine = ({ walletAddress, myWallet }) => {
 		return provider
 	}
 
-	//NOTE: Get Candy Machine State
-	//TODO: When functional for 1 collection mint : change the Candy Machine ID depending on the collection to mint
-	const getCandyMachineState = async () => {
-		const provider = getProvider()
+	useEffect(() => {
+		//NOTE: Get Candy Machine State
+		//TODO: When functional for 1 collection mint : change the Candy Machine ID depending on the collection to mint
+		const getCandyMachineState = async () => {
+			const provider = getProvider()
 
-		//Get metadata about your deployed candy machine program
-		const idl = await Program.fetchIdl(candyMachineProgram, provider)
+			//Get metadata about your deployed candy machine program
+			const idl = await Program.fetchIdl(candyMachineProgram, provider)
 
-		//Create a program that you can call
-		const program = new Program(idl, candyMachineProgram, provider)
+			//Create a program that you can call
+			const program = new Program(idl, candyMachineProgram, provider)
 
-		//Fetch the metadata from your candy machine
-		const candyMachine = await program.account.candyMachine.fetch(
-			process.env.REACT_APP_CANDY_MACHINE_ID
-		)
+			//Fetch the metadata from your candy machine
+			const candyMachine = await program.account.candyMachine.fetch(
+				process.env.REACT_APP_CANDY_MACHINE_ID
+			)
 
-		// Parse out all our metadata and log it out
-		const itemsAvailable = candyMachine.data.itemsAvailable.toNumber()
-		const itemsRedeemed = candyMachine.itemsRedeemed.toNumber()
-		const itemsRemaining = itemsAvailable - itemsRedeemed
-		const goLiveData = candyMachine.data.goLiveDate.toNumber()
-		const presale =
-			candyMachine.data.whitelistMintSettings &&
-			candyMachine.data.whitelistMintSettings.presale &&
-			(!candyMachine.data.goLiveDate ||
-				candyMachine.data.goLiveDate.toNumber() > new Date().getTime() / 1000)
+			// Parse out all our metadata and log it out
+			const itemsAvailable = candyMachine.data.itemsAvailable.toNumber()
+			const itemsRedeemed = candyMachine.itemsRedeemed.toNumber()
+			const itemsRemaining = itemsAvailable - itemsRedeemed
+			const goLiveData = candyMachine.data.goLiveDate.toNumber()
+			const presale =
+				candyMachine.data.whitelistMintSettings &&
+				candyMachine.data.whitelistMintSettings.presale &&
+				(!candyMachine.data.goLiveDate ||
+					candyMachine.data.goLiveDate.toNumber() > new Date().getTime() / 1000)
 
-		// We will be using this later in our UI so let's generate this now
-		const goLiveDateTimeString = `${new Date(goLiveData * 1000).toGMTString()}`
+			// We will be using this later in our UI so let's generate this now
+			const goLiveDateTimeString = `${new Date(
+				goLiveData * 1000
+			).toGMTString()}`
 
-		setCandyMachine({
-			id: process.env.REACT_APP_CANDY_MACHINE_ID,
-			program,
-			state: {
+			setCandyMachine({
+				id: process.env.REACT_APP_CANDY_MACHINE_ID,
+				program,
+				state: {
+					itemsAvailable,
+					itemsRedeemed,
+					itemsRemaining,
+					goLiveData,
+					goLiveDateTimeString,
+					isSoldOut: itemsRemaining === 0,
+					isActive:
+						(presale ||
+							candyMachine.data.goLiveDate.toNumber() <
+								new Date().getTime() / 1000) &&
+						(candyMachine.endSettings
+							? candyMachine.endSettings.endSettingType.date
+								? candyMachine.endSettings.number.toNumber() >
+								  new Date().getTime() / 1000
+								: itemsRedeemed < candyMachine.endSettings.number.toNumber()
+							: true),
+					isPresale: presale,
+					goLiveDate: candyMachine.data.goLiveDate,
+					treasury: candyMachine.wallet,
+					tokenMint: candyMachine.tokenMint,
+					gatekeeper: candyMachine.data.gatekeeper,
+					endSettings: candyMachine.data.endSettings,
+					whitelistMintSettings: candyMachine.data.whitelistMintSettings,
+					hiddenSettings: candyMachine.data.hiddenSettings,
+					price: candyMachine.data.price,
+				},
+			})
+
+			console.log({
 				itemsAvailable,
 				itemsRedeemed,
 				itemsRemaining,
 				goLiveData,
 				goLiveDateTimeString,
-				isSoldOut: itemsRemaining === 0,
-				isActive:
-					(presale ||
-						candyMachine.data.goLiveDate.toNumber() <
-							new Date().getTime() / 1000) &&
-					(candyMachine.endSettings
-						? candyMachine.endSettings.endSettingType.date
-							? candyMachine.endSettings.number.toNumber() >
-							  new Date().getTime() / 1000
-							: itemsRedeemed < candyMachine.endSettings.number.toNumber()
-						: true),
-				isPresale: presale,
-				goLiveDate: candyMachine.data.goLiveDate,
-				treasury: candyMachine.wallet,
-				tokenMint: candyMachine.tokenMint,
-				gatekeeper: candyMachine.data.gatekeeper,
-				endSettings: candyMachine.data.endSettings,
-				whitelistMintSettings: candyMachine.data.whitelistMintSettings,
-				hiddenSettings: candyMachine.data.hiddenSettings,
-				price: candyMachine.data.price,
-			},
-		})
+				presale,
+			})
+		}
 
-		console.log({
-			itemsAvailable,
-			itemsRedeemed,
-			itemsRemaining,
-			goLiveData,
-			goLiveDateTimeString,
-			presale,
-		})
-	}
-
-	useEffect(() => {
 		getCandyMachineState()
 	}, [])
 
@@ -432,7 +434,7 @@ const CandyMachine = ({ walletAddress, myWallet }) => {
 						</div>
 					) : (
 						<p className={styles['no-wallet-msg']}>
-							<a href='#' className={styles.link}>
+							<a href='#top' className={styles.link}>
 								Connect
 							</a>{' '}
 							to your Phantom wallet. Don't have one yet ?{' '}

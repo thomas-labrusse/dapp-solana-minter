@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 //SOLANA
 import { Connection } from '@solana/web3.js'
 import { Metadata } from '@metaplex-foundation/mpl-token-metadata'
@@ -9,29 +9,18 @@ import axios from 'axios'
 import Medal from './Medal'
 import MedalDescription from './MedalDescription'
 import Button from '../UI/Button'
-import Spinner from '../UI/Spinner'
+// import Spinner from '../UI/Spinner'
 
 import styles from './Cabinet.module.scss'
 
 import ButtonArrow from '../UI/Button-arrow'
 import { toIpfsLink } from '../../utils'
 
-// const contractAddress = '0x4E0375dE5a5313bfA54Da1e6986EeD824961E8A7'
-// const contractAddress2 = '0xD560B317416E1FE2781C8a0b88A1DC04F611E5b7'
-
-const contracts = [
-	'0xBF33f47965379fB4187Db07E7398c8a3eFa9265a',
-	'0xD560B317416E1FE2781C8a0b88A1DC04F611E5b7',
-	'0x8EC38C64Dd165B0B1b756104ACd4377840fCD9a5',
-]
-
-// const url = 'https://nftmetadataapi.herokuapp.com/api/v1/tokens/1'
-
 const Cabinet = (props) => {
 	const [ownedTokens, setOwnedTokens] = useState([])
 	const [tokensData, setTokensData] = useState([])
 	const [currentToken, setCurrentToken] = useState(0)
-	const [spinner, setSpinner] = useState(false)
+	// const [spinner, setSpinner] = useState(false)
 
 	const navUp = () => {
 		// if only one token, do nothing
@@ -56,7 +45,7 @@ const Cabinet = (props) => {
 		}
 	}
 
-	const verifyHoldings = async () => {
+	const verifyHoldings = useCallback(async () => {
 		//NOTE: SOLANA verify holdings in Phantom wallet, see https://solanacookbook.com/references/nfts.html#candy-machine-v2
 		//NOTE: only working with @metaplex-foundation/mpl-token-metadata versions 1.2, not 2.0 where findDataByOwner is deprecated
 		//NOTE: Only works with @solana/spl-token@0.1.8, (0.2.0 doesn't not include the u64.fromBuffer method)
@@ -81,18 +70,18 @@ const Cabinet = (props) => {
 		} catch (error) {
 			console.error(error)
 		}
-	}
+	}, [props.walletAddress])
 
 	//Retrieving holdings whenever the wallet connected changes
 
 	useEffect(() => {
-		console.log('Verify Holdings use effect')
-		console.log('Connected wallet :', props.walletAddress)
+		// console.log('Verify Holdings use effect')
+		// console.log('Connected wallet :', props.walletAddress)
 		const asyncVerifyHoldings = async () => {
 			await verifyHoldings()
 		}
 		asyncVerifyHoldings()
-	}, [])
+	}, [verifyHoldings])
 
 	useEffect(() => {
 		if (ownedTokens.length > 0) {
@@ -112,7 +101,8 @@ const Cabinet = (props) => {
 
 	return (
 		<div className={styles['cabinet-container']}>
-			{tokensData.length > 0 && !spinner ? (
+			{/* {tokensData.length > 0 && !spinner ? ( */}
+			{tokensData.length > 0 ? (
 				<div className={styles['cabinet']}>
 					<MedalDescription token={tokensData[currentToken]} />
 					<div>
@@ -144,14 +134,15 @@ const Cabinet = (props) => {
 			) : (
 				<></>
 			)}
-			{!tokensData.length > 0 && !spinner ? (
+			{/* {!tokensData.length > 0 && !spinner ? ( */}
+			{!tokensData.length > 0 ? (
 				<div className={styles['display-medal-button-container']}>
 					<Button onClick={verifyHoldings}>Display my medals</Button>
 				</div>
 			) : (
 				<></>
 			)}
-			{spinner ? <Spinner /> : <></>}
+			{/* {spinner ? <Spinner /> : <></>} */}
 		</div>
 	)
 }
