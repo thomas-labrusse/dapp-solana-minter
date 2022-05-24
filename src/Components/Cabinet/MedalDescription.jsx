@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './MedalDescription.module.scss'
 
 function MedalDescription(props) {
-	const { description, attributes, id } = props.token
+	const { description, attributes } = props.token
 
 	const date =
 		attributes.filter((element) => element.trait_type === 'Race date').length >
@@ -71,5 +71,3 @@ function MedalDescription(props) {
 }
 
 export default MedalDescription
-
-

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+// import { Link } from 'react-router-dom'
 
 import styles from './Minter.module.scss'
 
 import RaceCard from './RaceCard'
-import CandyMachine from '../CandyMachine/CandyMachine'
-import Spinner from '../UI/Spinner'
+// import CandyMachine from '../CandyMachine/CandyMachine'
+// import Spinner from '../UI/Spinner'
 
 // const contractAddress = '0x4E0375dE5a5313bfA54Da1e6986EeD824961E8A7' // Rinkeby
 
@@ -37,7 +37,7 @@ const races = [
 ]
 
 const Minter = React.forwardRef((props, ref) => {
-	const [spinner, setSpinner] = useState(false)
+	// const [spinner, setSpinner] = useState(false)
 
 	return (
 		<div className={styles['minter-container']} id='mint' ref={ref}>
