@@ -50,7 +50,7 @@ const Learn = React.forwardRef((props, ref) => {
 			],
 		},
 		{
-			title: 'NFTs (Non Fungible Tokens)',
+			title: 'NFT (Non Fungible Tokens)',
 			questions: [
 				{
 					question: 'What is an NFT ?',
